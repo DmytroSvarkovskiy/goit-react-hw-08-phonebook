@@ -22,15 +22,18 @@ const contactSlise = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase
-    (fetchContacts.pending, handlePending).addCase
+    (fetchContacts.pending, handlePending)
+      .addCase
     (fetchContacts.fulfilled,(state, action)=> {
       state.isLoading = false;
       state.error = null;
       state.items = action.payload;
     }).addCase
-    (fetchContacts.rejected, handleRejected).addCase
+      (fetchContacts.rejected, handleRejected)
+      .addCase
     
-    (deleteContact.pending, handlePending).addCase
+      (deleteContact.pending, handlePending)
+      .addCase
     (deleteContact.fulfilled,(state, action)=>{
       const index = state.items.findIndex(task => task.id === action.payload.id);
       state.items.splice(index, 1);
