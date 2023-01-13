@@ -1,12 +1,13 @@
-import { createSlice } from '@reduxjs/toolkit';
+// import { createSlice } from '@reduxjs/toolkit';
 
-const authSlise = createSlice({
-    name: 'auth',
-    initialState: {
-        items: [],
-        isLoading: false,
-        error: null
-    }, extraReducers:
+// const authSlise = createSlice({
+//     name: 'auth',
+//     initialState: {
+//         items: [],
+//         isLoading: false,
+//         error: null
+//     }, extraReducers: builder => {
+//        builder.addCase 
+//     }
 
-
-})
+// })
