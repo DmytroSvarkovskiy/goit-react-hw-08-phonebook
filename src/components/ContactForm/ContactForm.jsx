@@ -1,7 +1,7 @@
 import { FormWr, Input, Label, Button } from './ContactForm.styled';
 import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
-import { addContact } from 'Redux/operations';
+import { addContact } from 'Redux/Contacts/operations';
 
 export const ContactForm = () => {
   const { register, handleSubmit, reset } = useForm();

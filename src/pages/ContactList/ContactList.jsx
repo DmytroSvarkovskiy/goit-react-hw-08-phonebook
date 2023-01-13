@@ -1,6 +1,6 @@
 import { Button, Item, List } from './ContactList.styled';
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteContact } from 'Redux/operations';
+import { deleteContact } from 'Redux/Contacts/operations';
 import { Outlet } from 'react-router-dom';
 
 export const Contactlist = () => {

@@ -19,7 +19,9 @@ const contactSlise = createSlice({
     error: null
   },
   
-  extraReducers:(builder)=> {builder.addCase
+  extraReducers: builder => {
+    builder
+      .addCase
     (fetchContacts.pending,()=> handlePending).addCase
     (fetchContacts.fulfilled,(state, action)=> {
       state.isLoading = false;
@@ -35,15 +37,18 @@ const contactSlise = createSlice({
       state.isLoading = false;
       state.error = null;
     }).addCase
-    (deleteContact.rejected,()=> handleRejected).addCase
+      (deleteContact.rejected, () => handleRejected)
+      .addCase
     
-    (addContact.pending,()=> handlePending).addCase
+      (addContact.pending, () => handlePending)
+      .addCase
 
     (addContact.fulfilled,(state, action)=>{
       state.items.unshift(action.payload)
       state.isLoading = false;
       state.error = null;
-    }).addCase
+    })
+      .addCase
     (addContact.rejected,()=> handleRejected)
     
   }
