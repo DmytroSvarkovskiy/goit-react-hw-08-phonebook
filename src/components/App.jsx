@@ -1,5 +1,4 @@
-// import { ContactForm } from './ContactForm/ContactForm';
-// import { Contactlist } from '../pages/ContactList/ContactList';
+import { ContactForm } from './ContactForm/ContactForm';
 // import { Filter } from './Filter/Filter';
 // import { useSelector, useDispatch } from 'react-redux';
 import { GlobalStyle } from './GlobalStyle';
@@ -9,6 +8,7 @@ import { GlobalStyle } from './GlobalStyle';
 import { Route, Routes } from 'react-router-dom';
 import { Layout } from './Layout/Layout';
 import { Home } from 'pages/Home/Home';
+import { Contactlist } from 'pages/ContactList/ContactList';
 
 export const App = () => {
   // const dispatch = useDispatch();
@@ -22,9 +22,9 @@ export const App = () => {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
-          {/* <ContactForm /> */}
-          {/* <Filter /> */}
-          {/* <Contactlist /> */}
+          <Route path="/contacts" element={<Contactlist />}>
+            <Route path="addcontact" element={<ContactForm />} />
+          </Route>
         </Route>
       </Routes>
       <GlobalStyle />

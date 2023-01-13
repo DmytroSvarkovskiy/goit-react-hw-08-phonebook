@@ -19,33 +19,32 @@ const contactSlise = createSlice({
     error: null
   },
   
-  extraReducers: {
-    [fetchContacts.pending]: handlePending,
-    [fetchContacts.fulfilled](state, action) {
+  extraReducers:(builder)=> {builder.addCase
+    (fetchContacts.pending,()=> handlePending).addCase
+    (fetchContacts.fulfilled,(state, action)=> {
       state.isLoading = false;
       state.error = null;
       state.items = action.payload;
-    },
-    [fetchContacts.rejected]: handleRejected,
+    }).addCase
+    (fetchContacts.rejected,()=> handleRejected).addCase
     
-    [deleteContact.pending]: handlePending,
-    [deleteContact.fulfilled](state, action) {
+    (deleteContact.pending,()=> handlePending).addCase
+    (deleteContact.fulfilled,(state, action)=>{
       const index = state.items.findIndex(task => task.id === action.payload.id);
       state.items.splice(index, 1);
       state.isLoading = false;
       state.error = null;
-
-    },
-    [deleteContact.rejected]: handleRejected,
+    }).addCase
+    (deleteContact.rejected,()=> handleRejected).addCase
     
-    [addContact.pending]: handlePending,
+    (addContact.pending,()=> handlePending).addCase
 
-    [addContact.fulfilled](state, action) {
+    (addContact.fulfilled,(state, action)=>{
       state.items.unshift(action.payload)
       state.isLoading = false;
       state.error = null;
-    },
-    [addContact.rejected]: handleRejected,
+    }).addCase
+    (addContact.rejected,()=> handleRejected)
     
   }
 }
