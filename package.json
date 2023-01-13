@@ -4,6 +4,8 @@
   "private": true,
   "homepage": "https://dmytrosvarkovskiy.github.io/goit-react-hw-08-phonebook/",
   "dependencies": {
+    "@mui/material": "^5.11.4",
+    "@mui/styled-engine-sc": "^5.11.0",
     "@reduxjs/toolkit": "^1.9.1",
     "@testing-library/jest-dom": "^5.16.3",
     "@testing-library/react": "^12.1.4",
@@ -17,6 +19,7 @@
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.6.2",
     "react-scripts": "5.0.1",
+    "styled-components": "^5.3.6",
     "styled-system": "^5.1.5",
     "web-vitals": "^2.1.3"
   },
