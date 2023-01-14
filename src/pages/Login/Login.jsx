@@ -9,11 +9,15 @@ import {
 
 import { Link } from 'react-router-dom';
 export const Login = () => {
+  const [form] = FormWrap.useForm();
+
   const onFinish = values => {
     console.log('Received values of form: ', values);
+    form.resetFields();
   };
   return (
     <FormWrap
+      form={form}
       name="normal_login"
       initialValues={{
         remember: true,

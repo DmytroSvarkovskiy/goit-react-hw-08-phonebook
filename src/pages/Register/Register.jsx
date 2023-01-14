@@ -10,7 +10,7 @@ export const Register = () => {
   const [form] = FormReg.useForm();
   const onFinish = values => {
     console.log('Received values of form: ', values);
-    form.reset();
+    form.resetFields();
   };
 
   return (
