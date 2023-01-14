@@ -10,7 +10,7 @@ export const Nav = styled.nav`
   height: 50px;
   align-items: center;
   padding: 0 15px;
-  border-bottom: 1px solid #3a97e8;
+  border-bottom: 2px solid #3a97e8;
 `;
 export const Link = styled(NavLink)`
   :nth-child(2n + 1) {

@@ -7,7 +7,7 @@ export const Button = styled.button`
   font-weight: 600;
   cursor: pointer;
   :hover {
-    background-color: #a5362f;
+    background-color: #1677ff;
     color: #ffffff;
   }
   transition: background-color cubic-bezier(0.17, 0.67, 0.86, 0.57) 300ms,
