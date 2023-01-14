@@ -1,4 +1,3 @@
-import { ContactForm } from './ContactForm/ContactForm';
 import { GlobalStyle } from './GlobalStyle';
 import { Route, Routes } from 'react-router-dom';
 import { Layout } from './Layout/Layout';
