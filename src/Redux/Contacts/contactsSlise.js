@@ -53,8 +53,7 @@ const contactSlise = createSlice({
     })
       .addCase
     (addContact.rejected, handleRejected)
-    
   }
-}
-)
+})
+
 export const contactsReduser = contactSlise.reducer;

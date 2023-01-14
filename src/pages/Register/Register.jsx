@@ -5,12 +5,18 @@ import {
   InputReg,
   InputPassword,
 } from './Register.styled';
+import { register } from 'Redux/Authorization/operations';
 
 export const Register = () => {
   const [form] = FormReg.useForm();
   const onFinish = values => {
-    console.log('Received values of form: ', values);
-    form.resetFields();
+    const { name, email, password, confirm } = values;
+    const user = { name, email, password };
+
+    if (password === confirm) {
+      register(user);
+      // form.resetFields();
+    }
   };
 
   return (
