@@ -12,7 +12,7 @@ export const Register = () => {
   const onFinish = values => {
     const { name, email, password, confirm } = values;
     const user = { name, email, password };
-
+    console.log('submit Register');
     if (password === confirm) {
       register(user);
       // form.resetFields();
