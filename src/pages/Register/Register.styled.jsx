@@ -9,3 +9,12 @@ export const FormReg = styled(Form)`
   margin: 20vh auto 0;
   width: 90vh;
 `;
+export const SubmitButton = styled(Button)`
+  width: 60%;
+`;
+export const InputReg = styled(Input)`
+  height: 40px;
+`;
+export const InputPassword = styled(Input.Password)`
+  height: 40px;
+`;

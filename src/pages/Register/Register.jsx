@@ -1,5 +1,10 @@
-import { Button, Form, Input } from 'antd';
-import { Label, FormReg } from './Register.styled';
+import {
+  Label,
+  FormReg,
+  SubmitButton,
+  InputReg,
+  InputPassword,
+} from './Register.styled';
 
 export const Register = () => {
   const [form] = FormReg.useForm();
@@ -31,7 +36,7 @@ export const Register = () => {
           },
         ]}
       >
-        <Input />
+        <InputReg />
       </Label>
       <Label
         name="email"
@@ -47,7 +52,7 @@ export const Register = () => {
           },
         ]}
       >
-        <Input />
+        <InputReg />
       </Label>
 
       <Label
@@ -61,7 +66,7 @@ export const Register = () => {
         ]}
         hasFeedback
       >
-        <Input.Password />
+        <InputPassword />
       </Label>
 
       <Label
@@ -86,12 +91,12 @@ export const Register = () => {
           }),
         ]}
       >
-        <Input.Password />
+        <InputPassword />
       </Label>
       <Label>
-        <Button type="primary" htmlType="submit">
+        <SubmitButton type="primary" htmlType="submit">
           Register
-        </Button>
+        </SubmitButton>
       </Label>
     </FormReg>
   );
