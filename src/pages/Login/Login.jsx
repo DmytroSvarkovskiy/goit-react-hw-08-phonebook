@@ -1,6 +1,11 @@
-import { LockOutlined, UserOutlined } from '@ant-design/icons';
-import { Checkbox, Form, Input } from 'antd';
-import { FormWrap, LogButton } from './Login.styled';
+import {
+  FormWrap,
+  LogButton,
+  UserIcon,
+  PasswordIcon,
+  InputForm,
+  RegLink,
+} from './Login.styled';
 
 import { Link } from 'react-router-dom';
 export const Login = () => {
@@ -15,21 +20,19 @@ export const Login = () => {
       }}
       onFinish={onFinish}
     >
-      <Form.Item
-        name="username"
+      <FormWrap.Item
+        name="email"
         rules={[
           {
             required: true,
-            message: 'Please input your Username!',
+            message: 'Please input your Email!',
+            type: 'email',
           },
         ]}
       >
-        <Input
-          prefix={<UserOutlined className="site-form-item-icon" />}
-          placeholder="Username"
-        />
-      </Form.Item>
-      <Form.Item
+        <InputForm prefix={<UserIcon />} placeholder="Email" />
+      </FormWrap.Item>
+      <FormWrap.Item
         name="password"
         rules={[
           {
@@ -38,24 +41,21 @@ export const Login = () => {
           },
         ]}
       >
-        <Input
-          prefix={<LockOutlined className="site-form-item-icon" />}
+        <InputForm
+          prefix={<PasswordIcon />}
           type="password"
           placeholder="Password"
         />
-      </Form.Item>
-      <Form.Item>
-        <Form.Item name="remember" valuePropName="checked" noStyle>
-          <Checkbox>Remember me</Checkbox>
-        </Form.Item>
-      </Form.Item>
+      </FormWrap.Item>
 
-      <Form.Item>
+      <FormWrap.Item>
         <LogButton type="primary" htmlType="submit">
           Log in
         </LogButton>
-        Or <Link to="/register">register now</Link>
-      </Form.Item>
+        <RegLink>
+          Or <Link to="/register">register now</Link>
+        </RegLink>
+      </FormWrap.Item>
     </FormWrap>
   );
 };

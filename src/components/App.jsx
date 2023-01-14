@@ -8,6 +8,7 @@ import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { fetchContacts } from 'Redux/Contacts/operations';
 import { Login } from 'pages/Login/Login';
+import { Register } from 'pages/Register/Register';
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -21,7 +22,7 @@ export const App = () => {
           <Route index element={<Home />} />
           <Route path="/contacts" element={<Contactlist />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<ContactForm />} />
+          <Route path="/register" element={<Register />} />
         </Route>
       </Routes>
       <GlobalStyle />
