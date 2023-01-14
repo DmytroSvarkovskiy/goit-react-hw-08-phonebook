@@ -29,7 +29,7 @@ export const Label = styled.label`
   gap: 10px;
   margin-bottom: 12px;
 `;
-export const Button = styled.button`
+export const ButtonAdd = styled.button`
   height: 30px;
   font-size: 15px;
   font-weight: 600;

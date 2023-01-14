@@ -1,12 +1,30 @@
-import { FormWr, Input, Label, Button } from './ContactForm.styled';
-import { useForm } from 'react-hook-form';
+// import { FormWr, Input, Label, ButtonAdd } from './ContactForm.styled';
+// import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 import { addContact } from 'Redux/Contacts/operations';
+import { useState } from 'react';
+import { Button, Modal } from 'antd';
 
 export const ContactForm = () => {
-  const { register, handleSubmit, reset } = useForm();
+  // const { register, handleSubmit, reset } = useForm();
   const currentContacts = useSelector(state => state.contacts.items);
   const dispatch = useDispatch();
+  const [open, setOpen] = useState(false);
+  const [confirmLoading, setConfirmLoading] = useState(false);
+  const showModal = () => {
+    setOpen(true);
+  };
+  const handleOk = () => {
+    setConfirmLoading(true);
+    setTimeout(() => {
+      setOpen(false);
+      setConfirmLoading(false);
+    }, 2000);
+  };
+  const handleCancel = () => {
+    console.log('Clicked cancel button');
+    setOpen(false);
+  };
 
   const submit = value => {
     const formatTel = () => {
@@ -30,33 +48,46 @@ export const ContactForm = () => {
       alert(`${newContact.name} is already in contact`);
     } else {
       dispatch(addContact(newContact));
-      reset();
+      // reset();
     }
   };
   return (
-    <FormWr onSubmit={handleSubmit(submit)}>
-      <Label>
-        Name
-        <Input
-          type="text"
-          {...register('name', { required: true })}
-          pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-          title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-          placeholder="Enter name"
-        />
-      </Label>
-      <Label>
-        Number
-        <Input
-          placeholder="Enter number"
-          type="tel"
-          {...register('phone', { required: true })}
-          pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-          title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-          required
-        />
-      </Label>
-      <Button type="submit">Add contact</Button>
-    </FormWr>
+    <>
+      <Button type="primary" onClick={showModal}>
+        Add contact
+      </Button>
+      <Modal
+        title="Add new contact"
+        open={open}
+        onOk={handleOk}
+        confirmLoading={confirmLoading}
+        onCancel={handleCancel}
+      >
+        {/* <FormWr onSubmit={handleSubmit(submit)}>
+          <Label>
+            Name
+            <Input
+              type="text"
+              {...register('name', { required: true })}
+              pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+              title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+              placeholder="Enter name"
+            />
+          </Label>
+          <Label>
+            Number
+            <Input
+              placeholder="Enter number"
+              type="tel"
+              {...register('phone', { required: true })}
+              pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+              title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+              required
+            />
+          </Label>
+          <ButtonAdd type="submit">Add contact</ButtonAdd>
+        </FormWr> */}
+      </Modal>
+    </>
   );
 };
