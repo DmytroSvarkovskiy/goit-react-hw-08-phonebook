@@ -3,12 +3,15 @@ import { register } from './operations';
 
 const handlePending = state => {
   state.isLoading = true;
-  state.error = null;
+    state.error = null;
+    state.isLoaggedIn = false;
 };
 
 const handleRejected = (state, action) => {
   state.isLoading = false;
-  state.error = action.payload;
+    state.error = action.payload;
+    state.isLoaggedIn = false;
+
 };
 
 const authSlise = createSlice({
@@ -24,8 +27,11 @@ const authSlise = createSlice({
     extraReducers: (builder) => {
         builder.addCase(register.pending, handlePending)
             .addCase(register.fulfilled, (state, action) => {
-            console.log(action.payload);
-        })
+                state.token = action.payload.token;
+                state.user = action.payload.user;
+                state.isLoaggedIn = true;
+                state.isLoading = false;
+            }).addCase(register.rejected, handleRejected  )
     }
 })
 

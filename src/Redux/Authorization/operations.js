@@ -8,11 +8,13 @@ const cleanAuthHeader = () => axios.defaults.headers.common.Authorization = '';
 export const register = createAsyncThunk('auth/register',
   async (user, { rejectWithValue }) => {
     
-        try {
-            const response = await axios.post('/users/signup',user);
-            return response.data;
+    try {
+      const response = await axios.post('/users/signup', user);
+      setAuthHeader(response.data.token)
+      return response.data;
        
     } catch (e) {
       return rejectWithValue(e.message);
     }
-    })
+  });
+    

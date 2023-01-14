@@ -6,16 +6,18 @@ import {
   InputPassword,
 } from './Register.styled';
 import { register } from 'Redux/Authorization/operations';
+import { useDispatch, useSelector } from 'react-redux';
 
 export const Register = () => {
   const [form] = FormReg.useForm();
+  const dispatch = useDispatch();
+  const { error, isLoading } = useSelector(state => state.auth);
   const onFinish = values => {
     const { name, email, password, confirm } = values;
-    const user = { name, email, password };
-    console.log('submit Register');
+
     if (password === confirm) {
-      register(user);
-      // form.resetFields();
+      dispatch(register({ name, email, password }));
+      !isLoading && form.resetFields();
     }
   };
 
@@ -72,7 +74,10 @@ export const Register = () => {
         ]}
         hasFeedback
       >
-        <InputPassword />
+        <InputPassword
+          pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{7,}"
+          title="Must contain at least one number and one uppercase and lowercase letter, and at least 7 or more characters"
+        />
       </Label>
 
       <Label
