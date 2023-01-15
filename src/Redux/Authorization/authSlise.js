@@ -51,10 +51,16 @@ const authSlise = createSlice({
                 state.isLoading = false;
             })
             .addCase(logOut.rejected, handleRejected)
+            .addCase(refreshUser.pending, state => {
+                state.isRefreshing = true;
+            })
             .addCase(refreshUser.fulfilled, (state, action) => {
                 state.user = action.payload;
                 state.isLoaggedIn = true;
-            }).addCase(refreshUser.rejected,handleRejected)
+                 state.isRefreshing = false;
+            }).addCase(refreshUser.rejected, state => {
+                state.isRefreshing = false;
+            })
         
     }
 })
