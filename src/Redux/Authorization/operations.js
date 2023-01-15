@@ -27,7 +27,7 @@ export const loginization = createAsyncThunk('auth/loginization',
       return rejectWithValue(e.message)
     }
   });
-export const logout = createAsyncThunk('auth/logout',
+export const logOut = createAsyncThunk('auth/logout',
   async (user, { rejectWithValue }) => {
     try {
       await axios.post('/users/logout', user);
