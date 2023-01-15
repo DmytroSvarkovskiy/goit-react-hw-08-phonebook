@@ -6,13 +6,15 @@ import {
   InputForm,
   RegLink,
 } from './Login.styled';
-
+import { loginization } from 'Redux/Authorization/operations';
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+
 export const Login = () => {
   const [form] = FormWrap.useForm();
-
+  const dispatch = useDispatch();
   const onFinish = values => {
-    console.log('Received values of form: ', values);
+    dispatch(loginization(values));
     form.resetFields();
   };
   return (

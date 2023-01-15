@@ -11,7 +11,7 @@ import { useDispatch, useSelector } from 'react-redux';
 export const Register = () => {
   const [form] = FormReg.useForm();
   const dispatch = useDispatch();
-  const { error, isLoading } = useSelector(state => state.auth);
+  const { isLoading } = useSelector(state => state.auth);
   const onFinish = values => {
     const { name, email, password, confirm } = values;
 
