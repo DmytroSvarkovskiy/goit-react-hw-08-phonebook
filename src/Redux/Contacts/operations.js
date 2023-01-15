@@ -2,8 +2,6 @@ import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
 axios.defaults.baseURL = 'https://connections-api.herokuapp.com/';
-// const setAuthHeader = token => axios.defaults.headers.common.Authorization = `Bearer ${token}`;
-// const cleanAuthHeader = () => axios.defaults.headers.common.Authorization = '';
 ;
 
 export const fetchContacts = createAsyncThunk('contacts/fetchContacts',
@@ -39,3 +37,13 @@ export const addContact = createAsyncThunk('contacts/addContact',
     }
   }
 )
+export const redactContatc = createAsyncThunk('contacts/redactContatc',
+  async (data, { rejectWithValue }) => {
+    try {
+    const response = await axios.patch(`/contacts/${data.id}`,{name:data.name,number:data.number});
+    return response.data;
+    
+  } catch (e) {
+    return rejectWithValue(e.message);
+  }
+})

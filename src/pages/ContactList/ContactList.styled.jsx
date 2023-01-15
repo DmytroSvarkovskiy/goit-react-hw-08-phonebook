@@ -1,17 +1,10 @@
 import styled from 'styled-components';
-export const ButtonDel = styled.button`
-  width: 80px;
-  height: 25px;
-  border-radius: 5px;
-  border: none;
-  font-weight: 600;
-  cursor: pointer;
-  :hover {
-    background-color: #1677ff;
-    color: #ffffff;
-  }
-  transition: background-color cubic-bezier(0.17, 0.67, 0.86, 0.57) 300ms,
-    color cubic-bezier(0.17, 0.67, 0.86, 0.57) 300ms;
+import { Button, Modal, Input } from 'antd';
+import { UserSwitchOutlined, PhoneOutlined } from '@ant-design/icons';
+
+export const ButtonReg = styled(Button)`
+  margin-right: 8px;
+  margin-left: auto;
 `;
 export const Item = styled.li`
   background-color: #f5f6f7;
@@ -27,4 +20,23 @@ export const List = styled.ul`
   display: flex;
   gap: 15px;
   flex-direction: column;
+`;
+export const UserIcon = styled(UserSwitchOutlined)`
+  color: #c7c6c6;
+`;
+export const PhoneIcon = styled(PhoneOutlined)`
+  color: #c7c6c6;
+`;
+export const InputForm = styled(Input)`
+  height: 40px;
+  font-size: 18px;
+  width: 100%;
+  :nth-child(1) {
+    margin-bottom: 12px;
+  }
+`;
+export const ModalRedact = styled(Modal)`
+  .ant-modal-content {
+    width: 330px;
+  }
 `;
