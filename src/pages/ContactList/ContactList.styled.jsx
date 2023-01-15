@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-export const Button = styled.button`
+export const ButtonDel = styled.button`
   width: 80px;
   height: 25px;
   border-radius: 5px;
@@ -14,6 +14,9 @@ export const Button = styled.button`
     color cubic-bezier(0.17, 0.67, 0.86, 0.57) 300ms;
 `;
 export const Item = styled.li`
+  background-color: #f5f6f7;
+  padding-left: 10px;
+  border-radius: 7px;
   display: flex;
   justify-content: space-between;
   align-items: center;
