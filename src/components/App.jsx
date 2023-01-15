@@ -8,6 +8,7 @@ import { Register } from 'pages/Register/Register';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { refreshUser } from 'Redux/Authorization/operations';
+import { PrivateRoute } from './PrivateRoute';
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -21,7 +22,12 @@ export const App = () => {
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
-            <Route path="/contacts" element={<Contactlist />} />
+            <Route
+              path="/contacts"
+              element={
+                <PrivateRoute component={<Contactlist />} redirectTo="/login" />
+              }
+            />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
           </Route>
