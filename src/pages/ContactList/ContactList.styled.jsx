@@ -40,6 +40,7 @@ export const InputForm = styled(Input)`
   }
 `;
 export const ModalRedact = styled(Modal)`
+  text-align: center;
   .ant-modal-content {
     width: 330px;
     position: absolute;
@@ -60,7 +61,10 @@ export const DivName = styled.div`
 `;
 export const Spiner = styled(Spin)`
   position: absolute;
-  top: 90px;
+  top: 20%;
   left: 50%;
   transform: translate(-50%, -50%);
+`;
+export const Title = styled.h2`
+  margin: 20px auto;
 `;

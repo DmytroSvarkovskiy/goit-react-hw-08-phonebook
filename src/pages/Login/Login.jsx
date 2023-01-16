@@ -20,7 +20,7 @@ export const Login = () => {
   };
   const { isLoading } = useSelector(state => state.auth);
   return (
-    <div>
+    <section>
       {isLoading && <Spiner />}
       <FormWrap
         form={form}
@@ -67,6 +67,6 @@ export const Login = () => {
           </RegLink>
         </FormWrap.Item>
       </FormWrap>
-    </div>
+    </section>
   );
 };

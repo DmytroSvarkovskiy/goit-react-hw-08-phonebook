@@ -11,6 +11,7 @@ import { refreshUser } from 'Redux/Authorization/operations';
 import { PrivateRoute } from './PrivateRoute';
 import { RestrictedRoute } from './RestrictedRoute';
 import { ToastContainer } from 'react-toastify';
+import { Spiner } from 'pages/ContactList/ContactList.styled';
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -18,38 +19,38 @@ export const App = () => {
     dispatch(refreshUser());
   }, [dispatch]);
   const { isRefreshing } = useSelector(state => state.auth);
-  return (
-    !isRefreshing && (
-      <>
-        <Routes>
-          <Route path="/" element={<Layout />}>
-            <Route index element={<Home />} />
-            <Route
-              path="/contacts"
-              element={
-                <PrivateRoute component={<Contactlist />} redirectTo="/login" />
-              }
-            />
-            <Route
-              path="/login"
-              element={
-                <RestrictedRoute redirectTo="/contacts" component={<Login />} />
-              }
-            />
-            <Route
-              path="/register"
-              element={
-                <RestrictedRoute
-                  redirectTo="/contacts"
-                  component={<Register />}
-                />
-              }
-            />
-          </Route>
-        </Routes>
-        <ToastContainer />
-        <GlobalStyle />
-      </>
-    )
+  return !isRefreshing ? (
+    <>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route
+            path="/contacts"
+            element={
+              <PrivateRoute component={<Contactlist />} redirectTo="/login" />
+            }
+          />
+          <Route
+            path="/login"
+            element={
+              <RestrictedRoute redirectTo="/contacts" component={<Login />} />
+            }
+          />
+          <Route
+            path="/register"
+            element={
+              <RestrictedRoute
+                redirectTo="/contacts"
+                component={<Register />}
+              />
+            }
+          />
+        </Route>
+      </Routes>
+      <ToastContainer />
+      <GlobalStyle />
+    </>
+  ) : (
+    <Spiner />
   );
 };

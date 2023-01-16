@@ -23,7 +23,7 @@ export const Register = () => {
   };
 
   return (
-    <div>
+    <section>
       {isLoading && <Spiner />}
       <FormReg
         form={form}
@@ -113,6 +113,6 @@ export const Register = () => {
           </SubmitButton>
         </Label>
       </FormReg>
-    </div>
+    </section>
   );
 };

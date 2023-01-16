@@ -3,10 +3,9 @@ import { Button, Form, Input, Modal } from 'antd';
 import { PhoneOutlined, UserAddOutlined } from '@ant-design/icons';
 
 export const FormWrap = styled(Form)`
-  max-width: 70%;
   margin: 0 auto;
 `;
-export const LogButton = styled(Button)`
+export const AddModalBtn = styled(Button)`
   width: 100%;
   height: 35px;
   font-size: 18px;
@@ -23,7 +22,18 @@ export const PhoneIcon = styled(PhoneOutlined)`
 export const InputForm = styled(Input)`
   height: 35px;
   font-size: 18px;
+  width: 100%;
 `;
 export const AddModal = styled(Modal)`
   text-align: center;
+  .ant-modal-content {
+    width: 340px;
+    height: 225px;
+    position: absolute;
+    top: 50%;
+    left: 20%;
+  }
+`;
+export const OpenAddModal = styled(Button)`
+  margin: 15px 0;
 `;

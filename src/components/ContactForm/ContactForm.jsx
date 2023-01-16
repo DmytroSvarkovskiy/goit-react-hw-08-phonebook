@@ -1,14 +1,14 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { addContact } from 'Redux/Contacts/operations';
 import { useState } from 'react';
-import { Button } from 'antd';
 import {
   FormWrap,
-  LogButton,
+  AddModalBtn,
   UserIcon,
   PhoneIcon,
   InputForm,
   AddModal,
+  OpenAddModal,
 } from './ContactForm.styled';
 import { PlusCircleOutlined } from '@ant-design/icons';
 
@@ -52,10 +52,15 @@ export const ContactForm = () => {
   };
   return (
     <>
-      <Button type="primary" onClick={showModal} title="add new contact">
+      <OpenAddModal
+        type="primary"
+        onClick={showModal}
+        title="add new contact"
+        size={'large'}
+      >
         <PlusCircleOutlined />
         Add contact
-      </Button>
+      </OpenAddModal>
       <AddModal
         footer={null}
         title="Add new contact"
@@ -105,9 +110,9 @@ export const ContactForm = () => {
           </FormWrap.Item>
 
           <FormWrap.Item>
-            <LogButton type="primary" htmlType="submit">
+            <AddModalBtn type="primary" htmlType="submit">
               Create contact
-            </LogButton>
+            </AddModalBtn>
           </FormWrap.Item>
         </FormWrap>
       </AddModal>
