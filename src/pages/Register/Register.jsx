@@ -4,6 +4,9 @@ import {
   SubmitButton,
   InputReg,
   InputPassword,
+  RegMail,
+  RegUser,
+  RegPassWord,
 } from './Register.styled';
 import { register } from 'Redux/Authorization/operations';
 import { useDispatch, useSelector } from 'react-redux';
@@ -47,7 +50,7 @@ export const Register = () => {
             },
           ]}
         >
-          <InputReg />
+          <InputReg prefix={<RegUser />} />
         </Label>
         <Label
           name="email"
@@ -63,7 +66,7 @@ export const Register = () => {
             },
           ]}
         >
-          <InputReg />
+          <InputReg prefix={<RegMail />} />
         </Label>
 
         <Label
@@ -78,6 +81,7 @@ export const Register = () => {
           hasFeedback
         >
           <InputPassword
+            prefix={<RegPassWord />}
             pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{7,}"
             title="Must contain at least one number and one uppercase and lowercase letter, and at least 7 or more characters"
           />
@@ -105,7 +109,7 @@ export const Register = () => {
             }),
           ]}
         >
-          <InputPassword />
+          <InputPassword prefix={<RegPassWord />} />
         </Label>
         <Label>
           <SubmitButton type="primary" htmlType="submit">
