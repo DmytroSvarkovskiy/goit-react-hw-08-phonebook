@@ -10,6 +10,7 @@ import {
   InputForm,
   AddModal,
 } from './ContactForm.styled';
+import { PlusCircleOutlined } from '@ant-design/icons';
 
 export const ContactForm = () => {
   const [open, setOpen] = useState(false);
@@ -51,7 +52,8 @@ export const ContactForm = () => {
   };
   return (
     <>
-      <Button type="primary" onClick={showModal}>
+      <Button type="primary" onClick={showModal} title="add new contact">
+        <PlusCircleOutlined />
         Add contact
       </Button>
       <AddModal

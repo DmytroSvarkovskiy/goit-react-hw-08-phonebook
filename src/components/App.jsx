@@ -10,6 +10,7 @@ import { useEffect } from 'react';
 import { refreshUser } from 'Redux/Authorization/operations';
 import { PrivateRoute } from './PrivateRoute';
 import { RestrictedRoute } from './RestrictedRoute';
+import { ToastContainer } from 'react-toastify';
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -46,6 +47,7 @@ export const App = () => {
             />
           </Route>
         </Routes>
+        <ToastContainer />
         <GlobalStyle />
       </>
     )

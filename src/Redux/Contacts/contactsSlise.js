@@ -1,5 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchContacts,deleteContact,addContact,redactContatc } from './operations';
+import { fetchContacts, deleteContact, addContact, redactContatc } from './operations';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const handlePending = state => {
   state.isLoading = true;
@@ -9,6 +11,7 @@ const handlePending = state => {
 const handleRejected = (state, action) => {
   state.isLoading = false;
   state.error = action.payload;
+  toast.error(`${action.payload}` === 'Network Error' ? `${action.payload}` : 'Something went wrong.Check your data and try again');
 };
 
 const contactSlise = createSlice({
@@ -33,14 +36,16 @@ const contactSlise = createSlice({
         const index = state.items.findIndex(task => task.id === action.payload.id);
         state.items.splice(index, 1);
         state.isLoading = false;
-        state.error = null})
+        state.error = null;
+        toast.success(`${action.payload.name} deleted successfully`)})
       .addCase(deleteContact.rejected, handleRejected)
 
       .addCase(addContact.pending, handlePending)
       .addCase(addContact.fulfilled,(state, action)=>{
       state.items.unshift(action.payload)
       state.isLoading = false;
-        state.error = null})
+        state.error = null
+      toast.success(`${action.payload.name} added successfully`)})
       .addCase(addContact.rejected, handleRejected)
 
       .addCase(redactContatc.pending, handlePending)
@@ -49,7 +54,8 @@ const contactSlise = createSlice({
       state.items.splice(index, 1);
       state.items.unshift(action.payload)
       state.isLoading = false;
-      state.error = null})
+      state.error = null;
+      toast.success(`${action.payload.name} redacted successfully`)})
       .addCase(redactContatc.rejected, handleRejected)
   }
 })

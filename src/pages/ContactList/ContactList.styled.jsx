@@ -1,6 +1,10 @@
 import styled from 'styled-components';
-import { Button, Modal, Input } from 'antd';
-import { UserSwitchOutlined, PhoneOutlined } from '@ant-design/icons';
+import { Button, Modal, Input, Spin } from 'antd';
+import {
+  UserSwitchOutlined,
+  PhoneOutlined,
+  UserOutlined,
+} from '@ant-design/icons';
 
 export const ButtonReg = styled(Button)`
   margin-right: 8px;
@@ -39,4 +43,19 @@ export const ModalRedact = styled(Modal)`
   .ant-modal-content {
     width: 330px;
   }
+`;
+export const UserIconList = styled(UserOutlined)`
+  margin-right: 8px;
+`;
+export const PhoneiconList = styled(PhoneOutlined)`
+  margin: 0 8px;
+`;
+export const DivName = styled.div`
+  min-width: 220px;
+`;
+export const Spiner = styled(Spin)`
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 `;

@@ -1,5 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { register, loginization, logOut, refreshUser } from './operations';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 
 const handlePending = state => {
@@ -10,6 +13,7 @@ const handlePending = state => {
 const handleRejected = (state, action) => {
   state.isLoading = false;
     state.error = action.payload;
+    toast.error(`${action.payload}` === 'Network Error' ? `${action.payload}` : 'Something went wrong.Check your data and try again');
     
 
 };
@@ -31,16 +35,16 @@ const authSlise = createSlice({
                 state.user = action.payload.user;
                 state.isLoaggedIn = true;
                 state.isLoading = false;
-
             }).addCase(register.rejected, handleRejected)
+
             .addCase(loginization.pending, handlePending)
             .addCase(loginization.fulfilled, (state, action) => {
                 state.token = action.payload.token;
                 state.user = action.payload.user;
                 state.isLoaggedIn = true;
-                state.isLoading = false;
-            })
+                state.isLoading = false;})
             .addCase(loginization.rejected, handleRejected)
+
             .addCase(logOut.pending, handlePending)
             .addCase(logOut.fulfilled, state => {
                 state.user = { email: null, password: null };
@@ -48,17 +52,16 @@ const authSlise = createSlice({
                 state.isLoaggedIn=false;
                 state.isRefreshing=false;
                 state.error= null;
-                state.isLoading = false;
-            })
+                state.isLoading = false;})
             .addCase(logOut.rejected, handleRejected)
+
             .addCase(refreshUser.pending, state => {
-                state.isRefreshing = true;
-            })
+                state.isRefreshing = true;})
             .addCase(refreshUser.fulfilled, (state, action) => {
                 state.user = action.payload;
                 state.isLoaggedIn = true;
                  state.isRefreshing = false;
-            }).addCase(refreshUser.rejected, state => {
+            }).addCase(refreshUser.rejected, (state,action) => {
                 state.isRefreshing = false;
             })
         
