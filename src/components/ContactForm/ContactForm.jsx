@@ -19,6 +19,7 @@ export const ContactForm = () => {
   const loader = useSelector(state => state.contacts.isLoading);
   const dispatch = useDispatch();
   const showModal = () => {
+    form.resetFields();
     setOpen(true);
   };
 
