@@ -42,20 +42,25 @@ export const InputForm = styled(Input)`
 export const ModalRedact = styled(Modal)`
   .ant-modal-content {
     width: 330px;
+    position: absolute;
+    top: 50%;
+    left: 20%;
   }
 `;
 export const UserIconList = styled(UserOutlined)`
   margin-right: 8px;
+  color: #1677ff;
 `;
 export const PhoneiconList = styled(PhoneOutlined)`
   margin: 0 8px;
+  color: #1677ff;
 `;
 export const DivName = styled.div`
   min-width: 220px;
 `;
 export const Spiner = styled(Spin)`
   position: absolute;
-  top: 25%;
+  top: 90px;
   left: 50%;
   transform: translate(-50%, -50%);
 `;
