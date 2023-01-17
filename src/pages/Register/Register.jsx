@@ -123,8 +123,8 @@ export const Register = () => {
               Register
             </SubmitButton>{' '}
             <ContLabel>
-              or <LinkToLog to="/login"> log in</LinkToLog>if you have an
-              account{' '}
+              or <LinkToLog to="/login"> log in</LinkToLog>if you already have
+              an account{' '}
             </ContLabel>
           </Label>
         </FormReg>
