@@ -26,7 +26,7 @@ export const Link = styled(NavLink)`
   color: inherit;
   font-size: 18px;
   font-weight: 600;
-  padding: 10px 4px;
+  padding: 11px 4px;
 `;
 export const RegIcon = styled(IssuesCloseOutlined)`
   margin-right: 8px;
