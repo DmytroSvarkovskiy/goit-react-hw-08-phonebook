@@ -3,7 +3,7 @@ import { Button, Form, Input } from 'antd';
 import { LockOutlined, MailOutlined } from '@ant-design/icons';
 
 export const FormWrap = styled(Form)`
-  max-width: 300px;
+  width: 300px;
 `;
 export const LogButton = styled(Button)`
   width: 100%;
@@ -20,6 +20,7 @@ export const PasswordIcon = styled(LockOutlined)`
 export const InputForm = styled(Input)`
   height: 45px;
   font-size: 18px;
+  width: 100%;
 `;
 export const RegLink = styled.div`
   font-size: 18px;

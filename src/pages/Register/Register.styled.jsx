@@ -12,7 +12,7 @@ export const Label = styled(Form.Item)`
 export const Container = styled.div`
   padding-top: 10%;
   display: flex;
-  justify-content: center;
+  padding-left: 20%;
 `;
 export const FormReg = styled(Form)`
   width: 500px;

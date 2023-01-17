@@ -52,7 +52,6 @@ export const Contactlist = () => {
   const visibleContacts = contacts.filter(subscriber =>
     subscriber.name.toLowerCase().includes(filterData)
   );
-
   return (
     <section>
       <Container>
