@@ -40,3 +40,7 @@ export const HomeIcon = styled(HomeOutlined)`
 export const ContactIcon = styled(ContactsOutlined)`
   margin-right: 8px;
 `;
+export const Container = styled.div`
+  padding: 0 15px;
+  width: 1000px;
+`;

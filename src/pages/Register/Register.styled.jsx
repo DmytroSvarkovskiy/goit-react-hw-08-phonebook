@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import { Button, Form, Input } from 'antd';
 import { UserOutlined, LockOutlined, MailOutlined } from '@ant-design/icons';
+import { Link } from 'react-router-dom';
+
 export const Label = styled(Form.Item)`
   label {
     width: 150px;
@@ -34,4 +36,16 @@ export const RegUser = styled(UserOutlined)`
 `;
 export const RegPassWord = styled(LockOutlined)`
   color: #c7c6c6;
+`;
+export const LinkToLog = styled(Link)`
+  font-size: 18px;
+  margin: 0 4px;
+`;
+export const ContLabel = styled.div`
+  font-size: 18px;
+  line-height: 1.11;
+  position: absolute;
+  top: -1%;
+  left: 50%;
+  margin-left: 15px;
 `;

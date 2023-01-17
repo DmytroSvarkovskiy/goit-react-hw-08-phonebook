@@ -7,6 +7,8 @@ import {
   RegMail,
   RegUser,
   RegPassWord,
+  LinkToLog,
+  ContLabel,
 } from './Register.styled';
 import { register } from 'Redux/Authorization/operations';
 import { useDispatch, useSelector } from 'react-redux';
@@ -68,7 +70,6 @@ export const Register = () => {
         >
           <InputReg prefix={<RegMail />} />
         </Label>
-
         <Label
           name="password"
           label="Password"
@@ -86,7 +87,6 @@ export const Register = () => {
             title="Must contain at least one number and one uppercase and lowercase letter, and at least 7 or more characters"
           />
         </Label>
-
         <Label
           name="confirm"
           label="Confirm Password"
@@ -112,9 +112,13 @@ export const Register = () => {
           <InputPassword prefix={<RegPassWord />} />
         </Label>
         <Label>
+          {' '}
           <SubmitButton type="primary" htmlType="submit">
             Register
-          </SubmitButton>
+          </SubmitButton>{' '}
+          <ContLabel>
+            or <LinkToLog to="/login"> log in</LinkToLog>if you have an account{' '}
+          </ContLabel>
         </Label>
       </FormReg>
     </section>

@@ -1,35 +1,42 @@
-import { Title, HomeIcon, Wrap, UnderTitle, HomeLink } from './Home.styled';
+import {
+  Title,
+  HomeUserGroup,
+  Wrap,
+  UnderTitle,
+  HomeLink,
+  Section,
+  HomeEdit,
+  HomePhoneIcon,
+  HomeContactList,
+} from './Home.styled';
 import { useSelector } from 'react-redux';
 export const Home = () => {
   const { isLoaggedIn } = useSelector(state => state.auth);
 
   return (
-    <section>
+    <Section>
       <Title>Wellcome to you PhoneBook</Title>
       <Wrap>
-        <HomeIcon />
+        {' '}
+        <HomeEdit /> <HomePhoneIcon />
+        <HomeUserGroup />
+        <HomeContactList />
       </Wrap>
       {!isLoaggedIn ? (
         <UnderTitle>
-          Please{' '}
-          <HomeLink link to="/register">
-            Register
-          </HomeLink>{' '}
-          or{' '}
-          <HomeLink link to="/login">
-            Log in
-          </HomeLink>{' '}
+          Please
+          <HomeLink to="/register">Register</HomeLink>
+          or
+          <HomeLink to="/login">Log in</HomeLink>
           to be able to use your PhoneBook
         </UnderTitle>
       ) : (
         <UnderTitle>
-          Go to the tab{' '}
-          <HomeLink link to="/contacts">
-            Contacts
-          </HomeLink>{' '}
+          Go to the tab
+          <HomeLink to="/contacts">Contacts</HomeLink>
           and manage your contacts
         </UnderTitle>
       )}
-    </section>
+    </Section>
   );
 };

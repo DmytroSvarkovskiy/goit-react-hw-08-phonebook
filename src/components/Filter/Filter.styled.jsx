@@ -3,7 +3,6 @@ import styled from 'styled-components';
 
 export const WrapperFiler = styled.div`
   font-size: 20px;
-  margin-top: 15px;
 `;
 export const FilterInput = styled(Input)`
   height: 40px;

@@ -68,3 +68,6 @@ export const Spiner = styled(Spin)`
 export const Title = styled.h2`
   margin: 20px auto;
 `;
+export const Container = styled.div`
+  padding: 20px 0;
+`;

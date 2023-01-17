@@ -11,6 +11,7 @@ import {
   DivName,
   Spiner,
   Title,
+  Container,
 } from './ContactList.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteContact, redactContatc } from 'Redux/Contacts/operations';
@@ -54,61 +55,67 @@ export const Contactlist = () => {
 
   return (
     <section>
-      <div>
-        {' '}
-        {contacts.length < 1 ? <Title>Add you firs contact</Title> : <Filter />}
-        <ContactForm />
-        {isLoading && <Spiner />}
-      </div>
-      <List>
-        {visibleContacts.map(({ id, name, number }) => (
-          <Item key={id}>
-            <DivName>
-              <UserIconList />
-              {name}:
-            </DivName>
-            <PhoneiconList /> {number}
-            <ButtonReg
-              onClick={() => showModal(name, number, id)}
-              title="Edit contatc"
-            >
-              <EditOutlined />
-              Redact
-            </ButtonReg>
-            <Popconfirm
-              title="Are you sure delete this task?"
-              okText="Yes"
-              cancelText="No"
-              onConfirm={() => dispatch(deleteContact(id))}
-            >
-              <Button title="delete contatc" type="primary">
-                <DeleteOutlined /> Delete
-              </Button>
-            </Popconfirm>
-          </Item>
-        ))}
-        <ModalRedact
-          title="Edit a contact"
-          open={isModalOpen}
-          onOk={handleOk}
-          onCancel={handleCancel}
-        >
-          <InputForm
-            prefix={<UserIcon />}
-            value={subName}
-            onChange={e => {
-              setSubName(e.target.value);
-            }}
-          />
-          <InputForm
-            prefix={<PhoneIcon />}
-            value={subNumber}
-            onChange={e => {
-              setSubNumber(e.target.value);
-            }}
-          />
-        </ModalRedact>
-      </List>
+      <Container>
+        <div>
+          {' '}
+          {contacts.length < 1 ? (
+            <Title>Add you firs contact</Title>
+          ) : (
+            <Filter />
+          )}
+          <ContactForm />
+          {isLoading && <Spiner />}
+        </div>
+        <List>
+          {visibleContacts.map(({ id, name, number }) => (
+            <Item key={id}>
+              <DivName>
+                <UserIconList />
+                {name}:
+              </DivName>
+              <PhoneiconList /> {number}
+              <ButtonReg
+                onClick={() => showModal(name, number, id)}
+                title="Edit contatc"
+              >
+                <EditOutlined />
+                Redact
+              </ButtonReg>
+              <Popconfirm
+                title="Are you sure delete this task?"
+                okText="Yes"
+                cancelText="No"
+                onConfirm={() => dispatch(deleteContact(id))}
+              >
+                <Button title="delete contatc" type="primary">
+                  <DeleteOutlined /> Delete
+                </Button>
+              </Popconfirm>
+            </Item>
+          ))}
+          <ModalRedact
+            title="Edit a contact"
+            open={isModalOpen}
+            onOk={handleOk}
+            onCancel={handleCancel}
+          >
+            <InputForm
+              prefix={<UserIcon />}
+              value={subName}
+              onChange={e => {
+                setSubName(e.target.value);
+              }}
+            />
+            <InputForm
+              prefix={<PhoneIcon />}
+              value={subNumber}
+              onChange={e => {
+                setSubNumber(e.target.value);
+              }}
+            />
+          </ModalRedact>
+        </List>
+      </Container>
     </section>
   );
 };
