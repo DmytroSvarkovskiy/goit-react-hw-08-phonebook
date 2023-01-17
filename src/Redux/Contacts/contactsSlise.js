@@ -36,16 +36,14 @@ const contactSlise = createSlice({
         const index = state.items.findIndex(task => task.id === action.payload.id);
         state.items.splice(index, 1);
         state.isLoading = false;
-        state.error = null;
-        toast.success(`${action.payload.name} deleted successfully`)})
+        state.error = null;})
       .addCase(deleteContact.rejected, handleRejected)
 
       .addCase(addContact.pending, handlePending)
       .addCase(addContact.fulfilled,(state, action)=>{
       state.items.unshift(action.payload)
       state.isLoading = false;
-        state.error = null
-      toast.success(`${action.payload.name} added successfully`)})
+        state.error = null;})
       .addCase(addContact.rejected, handleRejected)
 
       .addCase(redactContatc.pending, handlePending)
@@ -54,8 +52,7 @@ const contactSlise = createSlice({
       state.items.splice(index, 1);
       state.items.unshift(action.payload)
       state.isLoading = false;
-      state.error = null;
-      toast.success(`${action.payload.name} redacted successfully`)})
+      state.error = null;})
       .addCase(redactContatc.rejected, handleRejected)
   }
 })
