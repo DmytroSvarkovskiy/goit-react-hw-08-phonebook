@@ -10,7 +10,7 @@ export const Label = styled(Form.Item)`
   }
 `;
 export const Container = styled.div`
-  padding-top: 100px;
+  padding-top: 10%;
   display: flex;
   justify-content: center;
 `;
@@ -56,5 +56,5 @@ export const ContLabel = styled.div`
 export const TitleReg = styled.h2`
   margin-left: 30%;
   margin-bottom: 15px;
-  color: #2e2d2dbc; ;
+  color: #2e2d2dbc;
 `;

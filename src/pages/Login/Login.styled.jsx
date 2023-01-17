@@ -4,7 +4,6 @@ import { LockOutlined, MailOutlined } from '@ant-design/icons';
 
 export const FormWrap = styled(Form)`
   max-width: 300px;
-  margin: 20vh auto 0;
 `;
 export const LogButton = styled(Button)`
   width: 100%;
@@ -25,4 +24,14 @@ export const InputForm = styled(Input)`
 export const RegLink = styled.div`
   font-size: 18px;
   text-align: center;
+`;
+export const Container = styled.div`
+  display: flex;
+  justify-content: center;
+  padding-top: 10%;
+`;
+export const TitleReg = styled.h2`
+  text-align: center;
+  margin-bottom: 15px;
+  color: #2e2d2dbc;
 `;
