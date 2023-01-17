@@ -61,7 +61,7 @@ export const DivName = styled.div`
 `;
 export const Spiner = styled(Spin)`
   position: absolute;
-  top: 20%;
+  top: 15%;
   left: 50%;
   transform: translate(-50%, -50%);
 `;
