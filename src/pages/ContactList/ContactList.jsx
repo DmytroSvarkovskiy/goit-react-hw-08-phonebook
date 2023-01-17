@@ -112,6 +112,7 @@ export const Contactlist = () => {
               onChange={e => {
                 setSubNumber(e.target.value);
               }}
+              pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
             />
           </ModalRedact>
         </List>

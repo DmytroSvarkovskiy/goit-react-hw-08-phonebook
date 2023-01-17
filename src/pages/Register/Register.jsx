@@ -19,13 +19,13 @@ import { Spiner } from 'pages/ContactList/ContactList.styled';
 export const Register = () => {
   const [form] = FormReg.useForm();
   const dispatch = useDispatch();
-  const { isLoading } = useSelector(state => state.auth);
+  const { isLoading, error } = useSelector(state => state.auth);
   const onFinish = values => {
     const { name, email, password, confirm } = values;
 
     if (password === confirm) {
       dispatch(register({ name, email, password }));
-      !isLoading && form.resetFields();
+      !isLoading && !error && form.resetFields();
     }
   };
 
