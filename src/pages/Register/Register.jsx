@@ -14,7 +14,6 @@ import {
 } from './Register.styled';
 import { register } from 'Redux/Authorization/operations';
 import { useDispatch, useSelector } from 'react-redux';
-import { Spiner } from 'pages/ContactList/ContactList.styled';
 
 export const Register = () => {
   const [form] = FormReg.useForm();
@@ -32,7 +31,6 @@ export const Register = () => {
   return (
     <section>
       <Container>
-        {isLoading && <Spiner />}
         <FormReg
           form={form}
           name="register"

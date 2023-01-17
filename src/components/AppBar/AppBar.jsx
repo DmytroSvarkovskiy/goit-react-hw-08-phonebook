@@ -7,13 +7,15 @@ import {
   ContactIcon,
   Container,
 } from './AppBar.styled';
+import { Spiner } from 'pages/ContactList/ContactList.styled';
 import { UserMenu } from 'components/UserMenu/UserMenu';
 import { useSelector } from 'react-redux';
 
 export const AppBar = () => {
-  const { isLoaggedIn } = useSelector(state => state.auth);
+  const { isLoaggedIn, isLoading } = useSelector(state => state.auth);
   return (
     <header>
+      {isLoading && <Spiner />}
       <Container>
         <Nav>
           <div>

@@ -14,11 +14,14 @@ import {
   Container,
 } from './ContactList.styled';
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteContact, redactContatc } from 'Redux/Contacts/operations';
+import {
+  deleteContact,
+  redactContatc,
+  fetchContacts,
+} from 'Redux/Contacts/operations';
 import { useEffect, useState } from 'react';
 import { Filter } from 'components/Filter/Filter';
 import { ContactForm } from 'components/ContactForm/ContactForm';
-import { fetchContacts } from 'Redux/Contacts/operations';
 import { Button, Popconfirm } from 'antd';
 import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
 

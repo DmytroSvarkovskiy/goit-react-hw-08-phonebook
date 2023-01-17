@@ -9,9 +9,8 @@ import {
   TitleReg,
 } from './Login.styled';
 import { loginization } from 'Redux/Authorization/operations';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { Spiner } from 'pages/ContactList/ContactList.styled';
 
 export const Login = () => {
   const [form] = FormWrap.useForm();
@@ -20,10 +19,8 @@ export const Login = () => {
     dispatch(loginization(values));
     form.resetFields();
   };
-  const { isLoading } = useSelector(state => state.auth);
   return (
     <section>
-      {isLoading && <Spiner />}
       <Container>
         <FormWrap
           form={form}
