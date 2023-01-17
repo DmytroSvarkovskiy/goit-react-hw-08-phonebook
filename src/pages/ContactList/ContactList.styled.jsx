@@ -6,7 +6,7 @@ import {
   UserOutlined,
 } from '@ant-design/icons';
 
-export const ButtonReg = styled(Button)`
+export const ButtonRedact = styled(Button)`
   margin-right: 8px;
   margin-left: auto;
 `;

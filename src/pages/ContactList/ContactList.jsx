@@ -1,7 +1,7 @@
 import {
   Item,
   List,
-  ButtonReg,
+  ButtonRedact,
   UserIcon,
   PhoneIcon,
   InputForm,
@@ -76,13 +76,13 @@ export const Contactlist = () => {
                 {name}:
               </DivName>
               <PhoneiconList /> {number}
-              <ButtonReg
+              <ButtonRedact
                 onClick={() => showModal(name, number, id)}
                 title="Edit contatc"
               >
                 <EditOutlined />
                 Redact
-              </ButtonReg>
+              </ButtonRedact>
               <Popconfirm
                 title="Are you sure delete this task?"
                 okText="Yes"
