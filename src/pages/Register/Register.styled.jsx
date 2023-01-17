@@ -9,8 +9,12 @@ export const Label = styled(Form.Item)`
     padding-top: 8px;
   }
 `;
+export const Container = styled.div`
+  padding-top: 100px;
+  display: flex;
+  justify-content: center;
+`;
 export const FormReg = styled(Form)`
-  margin: 20vh auto 0;
   width: 500px;
 `;
 export const SubmitButton = styled(Button)`
@@ -47,5 +51,10 @@ export const ContLabel = styled.div`
   position: absolute;
   top: -1%;
   left: 50%;
-  margin-left: 15px;
+  margin-left: 60px;
+`;
+export const TitleReg = styled.h2`
+  margin-left: 30%;
+  margin-bottom: 15px;
+  color: #2e2d2dbc; ;
 `;
