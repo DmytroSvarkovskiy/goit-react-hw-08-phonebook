@@ -17,4 +17,5 @@ export const FilterInput = styled(Input)`
 export const FilterP = styled.p`
   font-weight: 500;
   margin-bottom: 20px;
+  color: #2e2d2dbc;
 `;
