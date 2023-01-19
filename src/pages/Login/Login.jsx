@@ -12,7 +12,7 @@ import { loginization } from 'Redux/Authorization/operations';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-export const Login = () => {
+export default function Login() {
   const [form] = FormWrap.useForm();
   const dispatch = useDispatch();
   const onFinish = values => {
@@ -71,4 +71,4 @@ export const Login = () => {
       </Container>
     </section>
   );
-};
+}

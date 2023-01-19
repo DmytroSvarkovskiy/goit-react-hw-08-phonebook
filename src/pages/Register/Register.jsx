@@ -15,7 +15,7 @@ import {
 import { register } from 'Redux/Authorization/operations';
 import { useDispatch, useSelector } from 'react-redux';
 
-export const Register = () => {
+export default function Register() {
   const [form] = FormReg.useForm();
   const dispatch = useDispatch();
   const { isLoading, error } = useSelector(state => state.auth);
@@ -129,4 +129,4 @@ export const Register = () => {
       </Container>
     </section>
   );
-};
+}

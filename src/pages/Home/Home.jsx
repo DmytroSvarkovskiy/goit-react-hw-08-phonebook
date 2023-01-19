@@ -10,7 +10,7 @@ import {
   HomeContactList,
 } from './Home.styled';
 import { useSelector } from 'react-redux';
-export const Home = () => {
+export default function Home() {
   const { isLoaggedIn } = useSelector(state => state.auth);
 
   return (
@@ -39,4 +39,4 @@ export const Home = () => {
       )}
     </Section>
   );
-};
+}

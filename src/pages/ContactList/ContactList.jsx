@@ -25,7 +25,7 @@ import { ContactForm } from 'components/ContactForm/ContactForm';
 import { Button, Popconfirm } from 'antd';
 import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
 
-export const Contactlist = () => {
+export default function Contactlist() {
   const [subName, setSubName] = useState('');
   const [subNumber, setSubNumber] = useState('');
   const [subId, setSubId] = useState(null);
@@ -121,4 +121,4 @@ export const Contactlist = () => {
       </Container>
     </section>
   );
-};
+}
