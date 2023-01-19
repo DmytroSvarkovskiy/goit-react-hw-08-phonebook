@@ -3,8 +3,6 @@ import { register, loginization, logOut, refreshUser } from './operations';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-
-
 const handlePending = state => {
   state.isLoading = true;
     state.error = null;
@@ -15,7 +13,6 @@ const handleRejected = (state, action) => {
     state.error = action.payload;
     toast.error(`${action.payload}` === 'Network Error' ? `${action.payload}` : 'Something went wrong.Check your data and try again');
     
-
 };
 
 const authSlise = createSlice({
